@@ -1,0 +1,1 @@
+let sidebar=document.querySelector(".sidebar"),closeBtn=document.querySelector("#btnSidebar");function menuBtnChange(){sidebar.classList.contains("open")?closeBtn.classList.replace("bx-menu","bx-menu-alt-right"):closeBtn.classList.replace("bx-menu-alt-right","bx-menu")}closeBtn.addEventListener("click",()=>{sidebar.classList.toggle("open"),menuBtnChange()});
