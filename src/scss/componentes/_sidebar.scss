@@ -94,7 +94,7 @@
             width: auto;
             height: auto;
             opacity: 1;
-
+            display: block;
             button {
                 padding-right: 1rem;
                 width: 85%;
@@ -145,11 +145,12 @@
     opacity: 0;
     width: 0;
     height: 0;
-
+    display: none;
     @include m.tablet {
         opacity: 1;
         width: auto;
         height: 100vh;
+        display: block;
     }
 
     li {

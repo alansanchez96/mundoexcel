@@ -22,6 +22,7 @@ $script = '<script src="/build/js/sidebar.js"></script>';
             </div>
 
             <h1>Bienvenido</h1>
+            <h2>Nota: Agregar acceso del sidebar al dashboard</h2>
             <h3><span><?php echo $usuario->nombre . ' ' . $usuario->apellido;?></span></h3>
 
             <div class="dashboard__contenido contenedor">

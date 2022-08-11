@@ -114,7 +114,7 @@ class AuthController {
             $alertas = [];
 
             $token = '';
-
+            
             if($_GET){
                 $token = s($_GET['token']);
             }

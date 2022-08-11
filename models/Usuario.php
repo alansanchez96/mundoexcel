@@ -5,7 +5,7 @@ namespace Model;
 class Usuario extends ActiveRecord {
 
     protected static $tabla = 'usuarios';
-    protected static $columnasDB = ['id','nombre','apellido','email','telefono','dni','password','password1','admin','confirmado','token','picture','biografia','website','facebook','twitter','linkedin','password_actual'];
+    protected static $columnasDB = ['id','nombre','apellido','email','telefono','dni','password','password1','admin','confirmado','token','picture','biografia','website','facebook','twitter','linkedin','password_actual','email_nuevo'];
 
     public $id;
     public $nombre;
@@ -25,6 +25,7 @@ class Usuario extends ActiveRecord {
     public $twitter;
     public $linkedin;
     public $password_actual;
+    public $email_nuevo;
 
     public function __construct($args = [])
     {
@@ -46,6 +47,7 @@ class Usuario extends ActiveRecord {
         $this->twitter = $args['twitter'] ?? '';
         $this->linkedin = $args['linkedin'] ?? '';
         $this->password_actual = $args['password_actual'] ?? '';
+        $this->email_nuevo = $args['email_nuevo'] ?? '';
     }
 
     public function editarPerfil_validate(){
