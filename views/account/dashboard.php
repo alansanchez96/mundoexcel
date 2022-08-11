@@ -33,21 +33,54 @@ $script = '<script src="/build/js/sidebar.js"></script>';
                     <h4>Mis redes sociales</h4>
                     <?php
                         if($usuario->website){ ?>
-                            <p>Website: <?php echo $usuario->website;?></p>
-                        <?php }
-                        elseif($usuario->facebook){ ?>
-                            <p>Facebook: <?php echo $usuario->facebook; ?></p>
-                        <?php }
-                        elseif($usuario->twitter){ ?>
-                            <p>Twitter: <?php echo $usuario->twitter; ?></p>
-                        <?php }
-                        elseif($usuario->linkedin){ ?>
-                            <p>LinkedIn: <?php echo $usuario->linkedin; ?></p>
-                        <?php }
-                        else{ ?>
+                            <a href="<?php echo $usuario->website;?>"><p><span class="span_redes">Website:</span> <?php echo $usuario->website;?></p></a>
+                        <?php 
+                            if($usuario->facebook){ ?>
+                                <a href="<?php echo $usuario->facebook;?>"><p><span class="span_redes">Facebook</span>: <?php echo $usuario->facebook;?></p></a>
+                            <?php }
+                            if($usuario->twitter){ ?>
+                                <a href="<?php echo $usuario->twitter;?>"><p><span class="span_redes">Twitter</span>: <?php echo $usuario->twitter; ?></p></a>
+                            <?php }
+                            if($usuario->linkedin){ ?>
+                                <a href="<?php echo $usuario->linkedin;?>"><p><span class="span_redes">LinkedIn</span>: <?php echo $usuario->linkedin;?></p></a>
+                            <?php }
+                        } elseif($usuario->facebook){
+                            if($usuario->website){ ?>
+                                <a href="<?php echo $usuario->website;?>"><p><span class="span_redes">Website:</span> <?php echo $usuario->website;?></p></a>
+                            <?php } ?>
+                            <a href="<?php echo $usuario->facebook;?>"><p><span class="span_redes">Facebook</span>: <?php echo $usuario->facebook;?></p></a>
+                        <?php
+                            if($usuario->twitter){ ?>
+                                <a href="<?php echo $usuario->twitter;?>"><p><span class="span_redes">Twitter</span>: <?php echo $usuario->twitter;?></p></a>
+                            <?php }
+                            if($usuario->linkedin){ ?>
+                                <a href="<?php echo $usuario->linkedin;?>"><p><span class="span_redes">LinkedIn</span>: <?php $usuario->linkedin;?></p></a>
+                            <?php }
+                        } elseif($usuario->twitter){
+                            if($usuario->website){ ?>
+                                <a href="<?php echo $usuario->website;?>"><p><span class="span_redes">Website:</span> <?php echo $usuario->website;?></p></a>
+                            <?php }
+                            if($usuario->facebook){ ?>
+                                <a href="<?php echo $usuario->facebook;?>"><p><span class="span_redes">Facebook</span>: <?php echo $usuario->facebook;?></p></a>
+                            <?php } ?>
+                            <a href="<?php echo $usuario->twitter;?>"><p><span class="span_redes">Twitter</span>: <?php echo $usuario->twitter;?></p></a>
+                            <?php if($usuario->linkedin){ ?>
+                                <a href="<?php echo $usuario->linkedin;?>"><p><span class="span_redes">LinkedIn</span>: <?php echo $usuario->linkedin;?></p></a>
+                            <?php }
+                        } elseif($usuario->linkedin){
+                            if($usuario->website){ ?>
+                                <a href="<?php echo $usuario->website;?>"><p><span class="span_redes">Website:</span> <?php echo $usuario->website;?></p></a>
+                            <?php }
+                            if($usuario->facebook){ ?>
+                                <a href="<?php echo $usuario->facebook;?>"><p><span class="span_redes">Facebook</span>: <?php echo $usuario->facebook;?></p></a>
+                            <?php }
+                            if($usuario->twitter){ ?>
+                                <a href="<?php echo $usuario->twitter;?>"><p><span class="span_redes">Twitter</span>: <?php echo $usuario->twitter;?></p></a>
+                            <?php } ?>
+                            <a href="<?php echo $usuario->linkedin;?>"><p><span class="span_redes">LinkedIn</span>: <?php echo $usuario->linkedin;?></p></a>
+                        <?php } else{ ?>
                             <p class="dashboard_text-redes">El usuario aún no ha publicado sus redes sociales <i class='bx bx-sad'></i></p>
-                        <?php }
-                    ?>
+                        <?php } ?>
                 </div>
             </div>
 

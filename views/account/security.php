@@ -16,21 +16,27 @@ $script = '<script src="/build/js/sidebar.js"></script>';
     <div class="account-contenido">
 
         <h3>Configuracion de tu cuenta</h3>
+        <h4>Seguridad</h4>
 
-        <form action="/account/dashboard" class="formulario-account" method="POST" enctype="multipart/form-data">
+        <?php include_once __DIR__ . '/../templates/alertas.php'; ?>
 
-            <h4>Seguridad</h4>
+        <form class="formulario-account" method="POST" enctype="multipart/form-data">
+
 
             <div class="campo campo-account">
                 <label for="email">Nuevo Email</label>
                 <input type="email" id="email" name="email" value="<?php echo $usuario->email; ?>">
             </div>
             <div class="campo campo-account">
-                <label for="password">Contraseña</label>
+                <label for="password">Contraseña Actual</label>
+                <input type="password" id="password" name="password_actual">
+            </div>
+            <div class="campo campo-account">
+                <label for="password">Nueva Contraseña</label>
                 <input type="password" id="password" name="password">
             </div>
             <div class="campo campo-account">
-                <label for="password1">Repite contraseña</label>
+                <label for="password1">Repite Contraseña</label>
                 <input type="password" id="password1" name="password1">
             </div>
             <h4>Notificaciones</h4>
@@ -47,7 +53,7 @@ $script = '<script src="/build/js/sidebar.js"></script>';
             <h4>¿Quieres cerrar tu cuenta?</h4>
             <p class="close-account"><span class="error">Advertencia:</span> Si cierras tu cuenta, se cancelará tu suscripción a tus cursos X y perderás el acceso para siempre.</p>
 
-            <button type="submit" class="btn-rojo">Eliminar Cuenta</button>
+            <button class="btn-rojo">Eliminar Cuenta</button>
 
         </form>
 

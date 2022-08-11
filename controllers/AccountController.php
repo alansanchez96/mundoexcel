@@ -60,7 +60,7 @@ class AccountController
                 $resultado = $usuario->guardar();
 
                 if ($resultado === true) {
-                    header('location: /account/basic-information');
+                    header('location: /account/dashboard');
                 }
             }
         }
@@ -137,9 +137,53 @@ class AccountController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            # code...
+            $auth = new Usuario($_POST);// Contiene cuando se realiza el post
 
+            $alertas = $auth->validar('email', 'El email no puede estar vacío');
+
+            if(empty($alertas)){
+                // Si el mail ingresado es igual al mail del usuario
+                if($auth->email === $usuario->email){
+
+                    // Comprobar que la contraseña ACTUAL sea correcta
+                    if(isset($auth->password_actual)){
+                        // Comparar la contraseña ACTUAL con la contraseña hash del usuario
+                        $resultado = password_verify($auth->password_actual, $usuario->password);
+                        
+                        if($resultado){
+                            // Verificar que el campo NUEVA contraseña esté completo
+                            $alertas = $auth->validar('password', 'La nueva contraseña no puede estar vacía');
+
+                            if(empty($alertas)){
+                                // Verificar que la NUEVA contraseña no sea igual a la actual
+                                if($auth->password === $auth->password_actual && $usuario->password){
+                                    $alertas = Usuario::setAlerta('error','La nueva contraseña no debe ser identica la actual');
+                                } else{
+                                    // Si no es igual a la ACTUAL entonces
+                                    echo "Todo ok";
+                                }
+                            }
+                        } else{
+                            $alertas = Usuario::setAlerta('error', 'La contraseña actual no es correcta');
+                        }
+                    }
+                    else{
+                        # El campo password está vacio, no hacer nada...
+                        
+                    }
+
+                }
+                else{
+                    # Enviar email de nuevo email
+                    echo "Mail cambiado pronto";
+                    debuguear($auth);
+                }
+
+
+            }
         }
+
+        $alertas = Usuario::getAlertas();
 
         $router->render('account/security', [
             'usuario' => $usuario,
