@@ -1,0 +1,56 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.hero{
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+
+    @include m.desktop {
+        display: grid;
+        grid-template-columns: 33% 66%;
+        align-self: center;
+        width: 100%;
+    }
+
+    .derecha{
+        max-width: 60rem;
+        margin: 0 auto;
+        img{
+            box-shadow: -2px 2px 20px -6px rgba(0, 0, 0, 0.75);
+            width: 100%;
+            opacity: .8;
+        }
+    }
+    .izquierda{
+        margin-top: 2rem;
+
+        .logo-hero{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include m.desktop {
+                justify-content: flex-end;
+            }
+            img{
+                filter: invert(100%);
+                width: 100%;
+                max-width: 8rem;
+            }
+        }
+
+        h1,h2,p{
+            margin: 0 auto;
+            text-align: center;
+            @include m.desktop {
+                text-align: right;
+            }
+        }
+        h2{
+            margin-bottom: 1rem;
+        }
+    }
+}

@@ -1,0 +1,268 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.sidebar {
+    background-color: transparent;
+
+    @include m.tablet {
+        background-color: rgba(v.$negro, .5);
+        backdrop-filter: blur(1.7px);
+    }
+    height: 100vh;
+    border-radius: 0px 0px 8px 0px;
+    color: v.$blanco;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    height: 100vh;
+    width: 77px;
+    transition: all 0.5s ease;
+    position: fixed;
+
+    .head-sidebar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 2rem;
+        position: relative;
+        transition: all 0.5s ease;
+
+        #btnSidebar {
+            position: absolute;
+            top: 50%;
+            right: 78px;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            margin: 0;
+        }
+        i{
+            color: v.$negro;
+            @include m.tablet {
+                color: v.$blanco;
+            }
+        }
+        p {
+            font-weight: bold;
+        }
+
+        .icon,
+        p {
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+    }
+
+    i {
+        color: v.$negro;
+        height: 60px;
+        min-width: 5rem;
+        font-size: 2.8rem;
+        text-align: center;
+        line-height: 6rem;
+        transition: all 0.5s ease;
+    }
+
+    &.open {
+        background-color: rgba(v.$negro, .5);
+        backdrop-filter: blur(1.7px);
+        width: 322px;
+
+        .head-sidebar {
+            margin-right: 53px;
+            i{
+                color: v.$blanco;
+            }
+
+            #btnSidebar {
+                right: 0;
+                margin-right: -30px;
+                text-align: right;
+            }
+
+            .icon,
+            p {
+                opacity: 1;
+            }
+        }
+
+        .nav-list {
+            width: auto;
+            height: auto;
+            opacity: 1;
+
+            button {
+                padding-right: 1rem;
+                width: 85%;
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+
+            .nombre-link {
+                width: auto;
+                height: auto;
+                opacity: 1;
+            }
+
+            .perfil-sidebar {
+                .perfil-contenedor {
+                    padding: 2rem;
+                    margin: 0 auto 2rem;
+                    gap: 3rem;
+                    border-radius: 0;
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+                    img{
+                        width: 6rem;
+                        height: 6rem;
+                        transform: none;
+                    }
+                    .perfil-detalles {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .6rem;
+                        opacity: 1;
+                        width: auto;
+                        height: auto;
+
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    @include m.tablet {
+        opacity: 1;
+        width: auto;
+        height: 100vh;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+
+        margin: 0 auto 1rem;
+        .actual {
+            i,
+            .nombre-link {
+                font-weight: 600;
+                color: v.$verde;
+            }
+        }
+
+        button {
+            background-color: rgba(#000, .8);
+            border-radius: 8px;
+            border: none;
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            color: v.$blanco;
+            text-align: left;
+            cursor: pointer;
+            transition: all .5s ease;
+
+            &:hover {
+                i{
+                    transform: scale(1.25);
+                }
+                i,
+                .nombre-link {
+                    color: v.$verde;
+                    transition: all 0.5s ease;
+                }
+
+            }
+        }
+
+        i {
+            color: v.$blanco;
+        }
+
+        .nombre-link {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            font-size: 1.6rem;
+            margin: 0;
+
+            &::after {
+                content: ' »';
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+.perfil-sidebar {
+    transition: all 0.5s ease;
+    overflow: hidden;
+    cursor: pointer;
+    .perfil-contenedor {
+        display: flex;
+        align-items: center;
+        background-color: rgba(#000, .8);
+        border-radius: 8px;
+        width: 100%;
+        padding: 1rem;
+        transition: all .5s;
+        &:hover{
+            img{
+                filter: brightness(80%);
+                transform: scale(1.11);
+            }
+            .perfil-nombre, .perfil-nivel{
+                filter: brightness(82%);
+            }
+        }
+        &.perfilActive{
+            
+            img{
+                box-shadow: 1px -1px 12px -2px v.$verde;
+            }
+        }
+
+        img {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            object-fit: cover;
+        }
+        img, .perfil-nivel, .perfil-nombre{
+            transition: all .5s;
+        }
+        .perfil-detalles {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            
+            p {
+                color: v.$blanco;
+                font-size: 1.6rem;
+                margin: 0;
+            }
+
+            .perfil-nivel {
+                color: v.$azul;
+            }
+        }
+    }
+}

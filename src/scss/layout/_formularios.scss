@@ -1,0 +1,43 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+
+    .campo {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin: 2rem 0;
+
+        label {
+            font-family: 'Raleway', sans-serif;
+            color: v.$negro;
+        }
+
+        textarea {
+            height: 15rem;
+        }
+    }
+}
+
+.campo{
+    input,textarea{
+        outline: none;
+        padding: .6rem 1.2rem;
+        border-radius: 8px;
+        border: 1px v.$gris solid;
+        color: v.$negro;
+        width: 100%;
+        transition: border-color .3s linear;
+        background-color: transparent;
+        &:hover{
+            border-color: v.$verde;
+        }
+        &:focus{
+            border-color: v.$azul;
+        }
+    }
+}
