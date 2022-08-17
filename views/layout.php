@@ -1,8 +1,8 @@
-<?php 
-    if(!isset($_SESSION)) {
-        session_start();
-    }
-    $auth = $_SESSION['login'] ?? false;
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+$auth = $_SESSION['login'] ?? false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,33 +40,20 @@
             </div> <!-- Fin logo -->
 
             <div class="menu">
-                <div class="open-menu">
-                    <img src="/build/img/hamburger-icon.svg" alt="Abrir menu">
-                </div>
-                <nav class="navegacion hidden">
-                    <div class="close-menu">
-                        <img src="/build/img/close-icon.svg" alt="Cerrar menu">
-                    </div>
-                    <?php if(!$auth):?>
-                        <a href="/register">Registrate</a>
-                    <?php endif; ?>
-                    <?php if($auth):?>
-                        <a href="/account/dashboard">Mi Cuenta</a>
-                    <?php endif; ?>
+                <i class='bx bx-menu menu-open'></i>
+                <i class='bx bx-x menu-close'></i>
+
+                <nav class="nav">
                     <a href="/cursos">Cursos</a>
                     <a href="#">Power Bi</a>
-                    <a href="/quienes-somos">Quienes Somos</a>
-                    <a href="/contacto">Contacto</a>
+                    <a href="/quienes-somos">¿Quienes Somos?</a>
+                    <a href="contacto">Contacto</a>
                 </nav>
+
             </div>
 
-            <div class="log-header">
-                <?php if(!$auth):?>
-                    <a href="/login">Iniciar sesión</a>
-                <?php endif; ?>
-                <?php if($auth): ?>
-                    <a href="/logout" class="logout">Cerrar sesión</a>
-                <?php endif; ?>
+            <div class=" log-header">
+                <i class='bx bx-user'></i>
             </div>
 
         </div> <!-- Fin barra -->
@@ -116,7 +103,7 @@
 
     <script src="/build/js/app.js"></script>
     <?php
-        echo $script ?? '';
+    echo $script ?? '';
     ?>
 </body>
 
