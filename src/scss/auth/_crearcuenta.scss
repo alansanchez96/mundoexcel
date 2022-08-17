@@ -1,0 +1,15 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.campos {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    .campo{
+        display: flex;
+        flex-direction: column;
+        gap: .6rem;
+        width: 100%;
+        max-width: 100%;
+    }
+}

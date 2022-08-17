@@ -1,0 +1,83 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.recover {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    margin: 5rem auto;
+
+    p {
+        margin: 3rem auto 0;
+        text-align: center;
+    }
+
+    .otro-metodo {
+        .btn-feedback {
+            margin: -2rem auto 3rem;
+        }
+    }
+
+}
+
+.formulario-recover__Email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+
+    @include m.tablet {
+        width: 65%;
+    }
+
+    margin: 4rem auto;
+    gap: 3rem;
+
+    .campo{
+        input {
+            padding: .6rem 1.2rem;
+            color: v.$negro;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px v.$gris solid;
+        }
+    }
+    .btn-log {
+        width: 90%;
+
+        @include m.telefono {
+            width: auto;
+        }
+    }
+}
+
+.formulario-recover__DNI {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+
+    @include m.tablet {
+        width: 65%;
+    }
+
+    margin: 4rem auto;
+    gap: 3rem;
+
+    .campo{
+        input {
+            padding: .6rem 1.2rem;
+            color: v.$negro;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px v.$gris solid;
+        }
+    }
+    .btn-log {
+        width: 90%;
+
+        @include m.telefono {
+            width: auto;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boton{
+    @include m.boton(transparent, v.$verde, block);
+}
+.btn__viewmore{
+    @include m.boton(transparent, v.$verde, table);
+    transition: background-color .3s linear;
+    font-size: 2rem;
+    padding: 2rem 3rem;
+    width: auto;
+    margin: 4rem auto;
+    &:hover{
+        background-color: v.$verde;
+    }
+}
+
+.btn-feedback{
+    @include m.boton(transparent, v.$azul, block);
+    width: 90%;
+    @include m.telefono {
+        width: auto;
+    }
+}
+
+.btn-curso{
+    @include m.boton(transparent, v.$blanco, block);
+    &:hover{
+        color: v.$negro;
+    }
+}
+.btn-rojo{
+    @include m.boton(v.$rojo, v.$blanco, block);
+    margin: 1rem auto;
+    border: 1px v.$rojo solid;
+    &:hover{
+        background-color: transparent;
+        color: v.$rojo;
+        border: 1px v.$rojo solid;
+    }
+}

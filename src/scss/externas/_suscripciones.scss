@@ -1,0 +1,39 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.suscripcion{
+    h4{
+        margin-bottom: 3rem;
+    }
+}
+.opciones-suscripcion{
+    background-color: v.$azul;
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: -2px 2px 20px -6px rgba(0, 0, 0, 0.75);
+    width: 80%;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .items-izquierda, .items-derecha{
+        margin: 0;
+        li{
+            list-style-type: none;
+            color: v.$blanco;
+            margin: .6rem 0;
+        }
+    }
+}
+
+.form-suscribir{
+    width: 50%;
+    .campo-suscribir{
+        margin: 0 auto 3rem;
+        display: grid;
+        grid-template-columns: 80% 20%;
+    }
+}

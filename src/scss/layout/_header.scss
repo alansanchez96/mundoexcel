@@ -1,0 +1,141 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+header {
+    background: rgb(0, 0, 0);
+
+    padding: 1.6rem 0;
+    background: linear-gradient(90deg, rgba(0, 12, 18, 1) 0%, rgba(0, 12, 18, 0.6855336735757549) 50%, rgba(0, 12, 18, 1) 100%);
+
+    position: sticky;
+    backdrop-filter: blur(5px);
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /* margin: .5rem 0; */
+    @include m.telefono {
+        margin: 0;
+    }
+
+    img {
+        width: 5rem;
+    }
+
+    .logo__txt {
+        color: v.$blanco;
+        width: 4rem;
+
+        @include m.telefono {
+            width: auto;
+        }
+
+        span {
+            font-family: v.$fuente_principal;
+            color: v.$verde;
+        }
+    }
+}
+
+
+.barra {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+    align-items: flex-start;
+}
+
+
+.log-header {
+    i {
+        font-size: 5rem;
+        color: v.$verde;
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .3s;
+    i {
+        font-size: 5rem;
+        color: v.$blanco;
+        cursor: pointer;
+    }
+    &.menu-active{
+        height: 100vh;
+        transition: all .3s;
+    }
+}
+
+.menu-open {
+    visibility: visible;
+    height: auto;
+    width: auto;
+    opacity: 1;
+
+    &.menu-open_active {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.menu-close {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    opacity: 0;
+
+    &.menu-close_active {
+        visibility: visible;
+        height: auto;
+        width: auto;
+        opacity: 1;
+    }
+}
+
+.nav {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    transition: all .5s;
+    a, p{
+        color: v.$blanco;
+        font-size: 2rem;
+        text-align: center;
+        display: none;
+    }
+    &.nav_active {
+        transform: translateY(100%);
+        visibility: visible;
+        width: auto;
+        height: auto;
+        opacity: 1;
+        transition: all .5s;
+        a,p{
+            display: block;
+            transition: all .3s linear;
+            &:hover{
+                color: v.$verde;
+            }
+        }
+    }
+
+
+}

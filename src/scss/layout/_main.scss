@@ -1,0 +1,48 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+
+.bg-resumen {
+    width: 100%;
+    background-color: v.$azul;
+    height: 100%;
+    margin: 5rem auto;
+}
+
+.resumen {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+    padding: 3rem 0;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: 60% 40%;
+    }
+
+    .izquierda {
+
+        h2,
+        p {
+            color: v.$blanco;
+            text-align: center;
+        }
+        p{
+            &::before{
+                content: '✔️ ';
+            }
+        }
+    }
+
+    .derecha {
+        img{
+            width: 100%;
+            box-shadow: -2px 2px 20px -6px rgba(0, 0, 0, 0.75);
+        }
+    }
+}

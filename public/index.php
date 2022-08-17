@@ -66,7 +66,9 @@ $router->get('/account/my-courses', [AccountController::class, 'courses']);
 // Config
 $router->get('/account/security', [AccountController::class, 'security']);
 $router->post('/account/security', [AccountController::class, 'security']);
-
+// Nuevo Email
+$router->get('/account/newemail', [AccountController::class, 'newEmail']);
+$router->post('/account/newemail', [AccountController::class, 'newEmail']);
 
 
 

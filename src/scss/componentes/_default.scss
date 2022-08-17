@@ -1,0 +1,26 @@
+@use 'base/variables' as v;
+
+.default{
+    height: 100%;
+    display: grid;
+    place-items: center;
+    margin: 5rem auto;
+    h4{
+        margin-bottom: 10rem;
+        a{
+            color: v.$verde;
+            transition: color .3s linear;
+            &:hover{
+                color: darken(v.$verde, 10);
+            }
+        }
+    }
+}
+
+.mensaje{
+    margin: 3rem auto 5rem;
+    p{
+        margin: 10rem auto;
+        text-align: center;
+    }
+}

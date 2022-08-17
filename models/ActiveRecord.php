@@ -41,8 +41,10 @@ class ActiveRecord {
         }
     }
 
-    public function validar() {
-        static::$alertas = [];
+    public function validar($propiedad, $mensaje) {
+        if(!$this->$propiedad){
+            static::$alertas['error'][] = $mensaje;
+        }
         return static::$alertas;
     }
 

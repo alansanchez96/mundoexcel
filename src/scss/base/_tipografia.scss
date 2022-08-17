@@ -1,0 +1,29 @@
+@use 'variables' as v;
+
+h1, h2, h3, h4 {
+    font-family: v.$fuente_principal;
+    margin: 1rem auto ;
+    font-weight: 900;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.6rem;
+}
+h3 {
+    font-size: 3rem;
+}
+h4{
+    font-size: 2.6rem;
+}
+p {
+    font-size: 2rem;
+    margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
+}
+span{
+    color: v.$verde;
+}

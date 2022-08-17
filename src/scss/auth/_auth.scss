@@ -1,0 +1,62 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.login {
+    margin: 5rem auto;
+}
+
+.auth{
+    margin: 3rem auto 5rem;
+}
+
+.enlaces-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
+
+    @include m.tablet {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    a {
+        color: v.$negro;
+        transition: color .3s linear;
+
+        &:hover {
+            color: v.$azul;
+        }
+    }
+}
+
+.formulario-login, .formulario-create, .formulario-recover {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    @include m.tablet {
+        width: 65%;
+    }
+    margin: 4rem auto;
+    gap: 3rem;
+
+    input {
+        padding: .6rem 1.2rem;
+        color: v.$negro;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px v.$gris solid;
+    }
+
+    .btn-log {
+        width: 90%;
+
+        @include m.telefono {
+            width: auto;
+        }
+    }
+}

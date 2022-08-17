@@ -1,0 +1,83 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.courses{
+    padding-bottom: 4rem;
+    border-bottom: 1px v.$gris solid;
+    h2{
+        margin: 5rem auto;
+    }
+}
+.cards-courses {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 3rem;
+    margin: 0 auto;
+    @include m.telefono{
+        @include m.grid(2, 2rem);
+    }
+    @include m.desktop{
+        @include m.grid(3, 2rem);
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    border: none;
+    border-radius: 10px;
+    box-shadow: -2px 2px 20px -6px rgba(0, 0, 0, 0.75);
+    padding: 0;
+    width: 100%;
+
+    .card__img {
+        img {
+            width: 100%;
+            padding: 0;
+            object-fit: cover;
+        }
+    }
+}
+
+.card__contenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem 2rem;
+    h3{
+        margin: 0 auto 1rem;
+        font-size: 2.6rem;
+    }
+    p{
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.6rem;
+        text-align: center;
+        text-transform: 300;
+        @include m.telefono {
+            text-align: left;
+        }
+
+    }
+
+    .valor{
+        margin: 1rem auto;
+        .precio, .descuento{
+            font-size: 2.6rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .descuento{
+            font-size: 2rem;
+        }
+        .precio-descuento{
+            color: v.$rojo;
+            text-decoration: line-through;
+        }
+    }
+}
