@@ -35,7 +35,7 @@ class AuthController {
 
                         if($usuario->admin === '1'){
                             $_SESSION['admin'] = $usuario->admin ?? null;
-                            header('location: /account/me');
+                            header('location: /account/dashboard');
                         }else{
                             header('location: /');
                         }

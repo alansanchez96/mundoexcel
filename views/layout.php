@@ -1,8 +1,8 @@
-<?php 
-    if(!isset($_SESSION)) {
-        session_start();
-    }
-    $auth = $_SESSION['login'] ?? false;
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+$auth = $_SESSION['login'] ?? false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/build/css/app.css">
 </head>
 
-<body>
+<body id="body">
 
     <header id="header">
         <div class="barra contenedor">
@@ -40,33 +40,65 @@
             </div> <!-- Fin logo -->
 
             <div class="menu">
-                <div class="open-menu">
-                    <img src="/build/img/hamburger-icon.svg" alt="Abrir menu">
-                </div>
-                <nav class="navegacion hidden">
-                    <div class="close-menu">
-                        <img src="/build/img/close-icon.svg" alt="Cerrar menu">
-                    </div>
-                    <?php if(!$auth):?>
-                        <a href="/register">Registrate</a>
-                    <?php endif; ?>
-                    <?php if($auth):?>
-                        <a href="/account/dashboard">Mi Cuenta</a>
-                    <?php endif; ?>
+                <i class='bx bx-menu menu-open'></i>
+                <i class='bx bx-x menu-close'></i>
+                <nav class="nav">
+                    <?php if (!$auth) { ?>
+                        <span class="nav-option">
+                            <a href="/login">Iniciar sesión</a>
+                            <a href="/register">Registrarse</a>
+                        </span>
+                    <?php } ?>
                     <a href="/cursos">Cursos</a>
                     <a href="#">Power Bi</a>
-                    <a href="/quienes-somos">Quienes Somos</a>
+                    <a href="/quienes-somos">¿Quienes Somos?</a>
                     <a href="/contacto">Contacto</a>
+                    <?php if ($auth) { ?>
+                        <div class="nav-option">
+                            <a href="/account/dashboard">Mi cuenta</a>
+                            <a href="/logout" id="header-logout">Cerrar sesión</a>
+                        </div>
+                    <?php } ?>
                 </nav>
             </div>
 
             <div class="log-header">
-                <?php if(!$auth):?>
-                    <a href="/login">Iniciar sesión</a>
-                <?php endif; ?>
-                <?php if($auth): ?>
-                    <a href="/logout" class="logout">Cerrar sesión</a>
-                <?php endif; ?>
+                <div class="log-header_options">
+                    <div class="log_options-head">
+                        <?php if ($auth) { ?>
+                            <a href="/account/dashboard">
+                                <h4>Ir a Dashboard</h4>
+                            </a>
+                        <?php } ?>
+                        <?php if (!$auth) { ?>
+                                <h4>Invitado</h4>
+                        <?php } ?>
+                    </div>
+                    <i class='bx bx-user btnUser'></i>
+                </div>
+                <div class="window-log">
+                    <?php if ($auth) { ?>
+                        <a href="/logout">
+                            <h4 id="header-logout">Cerrar sesión</h4>
+                        </a>
+                    <?php } elseif (!$auth) { ?>
+                        <a href="/login">
+                            <h4>Iniciar sesión</h4>
+                        </a>
+                        <a href="/register">
+                            <h4>Registrarse</h4>
+                        </a>
+                        <!-- <form class="modalForm" method="POST">
+                                <div class="campo campoModal">
+                                    <input type="text" placeholder="Introduce tu email">
+                                </div>
+                                <div class="campo campoModal">
+                                    <input type="password" placeholder="Introduce tu contraseña">
+                                </div>
+                                <input type="submit" value="Iniciar sesión" class="btn-feedback">
+                            </form> -->
+                    <?php } ?>
+                </div>
             </div>
 
         </div> <!-- Fin barra -->
@@ -116,7 +148,7 @@
 
     <script src="/build/js/app.js"></script>
     <?php
-        echo $script ?? '';
+    echo $script ?? '';
     ?>
 </body>
 

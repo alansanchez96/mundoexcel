@@ -1,0 +1,1 @@
+function openUser(){const e=document.querySelector(".btnUser"),o=document.querySelector(".window-log");e.addEventListener("click",()=>{o.classList.toggle("window-log_active")})}

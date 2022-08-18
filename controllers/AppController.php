@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Model\Suscripcion;
+use Model\Usuario;
 use MVC\Router;
 
 class AppController
@@ -10,7 +11,19 @@ class AppController
 
     public static function index(Router $router){
 
-        $router->render('pages/index');
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        if($_SESSION){
+            $id = $_SESSION['id'];
+            $usuario = Usuario::find($id);
+        }else{
+            $usuario = '';
+        }
+
+        $router->render('pages/index',[
+            'usuario' => $usuario
+        ]);
     }
 
     public static function cursos(Router $router){

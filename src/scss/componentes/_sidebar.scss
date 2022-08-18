@@ -71,7 +71,8 @@
         background-color: rgba(v.$negro, .5);
         backdrop-filter: blur(1.7px);
         width: 322px;
-
+        top: -1px;
+        z-index: 110;
         .head-sidebar {
             margin-right: 53px;
             i{

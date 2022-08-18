@@ -4,13 +4,28 @@
 .hidden{
     opacity: 0;
     height: 0;
+    width: 0;
     visibility: hidden;
     pointer-events: none;
-    
-    transition: opacity .4s ease-in, height .5s linear, visibility .3s linear;
 
 }
 
 .displayNone{
     display: none;
+}
+.overflowHidden{
+    overflow: hidden;
+    @include m.tablet {
+        overflow: unset;
+    }
+}
+
+.nav-option{
+    display: contents;
+    @include m.tablet {
+        display: none;
+    }
+}
+.left-53{
+    left: 53px;
 }
